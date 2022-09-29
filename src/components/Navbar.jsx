@@ -12,6 +12,22 @@ import avatar from '../data/avatar.jpg';
 const Navbar = () => {
   const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext();
 
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    handleResize();
+
+    return () => window.removeEventListener ('resize', handleResize);
+  },[]);
+
+  useEffect(()=>{
+    if(screenSize <= 900){
+      setActiveMenu(false)
+    }else{
+      setActiveMenu(true)
+    }
+  },[screenSize])
+
   const NavButton = ({title, customFunc, icon, color, dotColor}) =>(
     <TooltipComponent content={title} position='BottomCenter'>
       <button 
@@ -26,7 +42,7 @@ const Navbar = () => {
       </button>
     </TooltipComponent>
   )
-
+ 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
       <NavButton 
