@@ -78,7 +78,7 @@ const Navbar = () => {
             <img className='rounded-full w-8 h-8' src={avatar}/>
             <p>
               <span className='text-gray-400 text-14'>Hi, </span> {' '}
-              <div className="text-gray-400 font-bold ml-1">Paul</div>
+              <span className="text-gray-400 font-bold ml-1">Paul</span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14'/>
           </div>
