@@ -50,7 +50,7 @@ const ThemeSettings = () => {
               name='theme'
               value='Dark'
               className = 'cursor-pointer'
-              onChange={()=> setMode}
+              onChange={setMode}
               checked={currentMode ==='Dark'}
             />
             <label htmlFor='dark'
