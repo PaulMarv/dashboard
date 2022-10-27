@@ -28,33 +28,34 @@ const ThemeSettings = () => {
           <p className='font-semibold text-lg'>
             Theme Options
           </p>
+          
           <div className="mt-4">
-            <input 
-              type="radio" 
+            <input
+              type="radio"
               id="light"
-              name='theme'
-              value='Light'
-              className = 'cursor-pointer'
-              onChange={()=> {}}
-              checked={currentMode ==='Light'}
+              name="theme"
+              value="Light"
+              className="cursor-pointer"
+              onChange={setMode}
+              checked={currentMode === 'Light'}
             />
-            <label htmlFor='light'
-            className='ml-2 text-md cursor-pointer'>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
               Light
             </label>
           </div>
-          <div className="mt-4">
-            <input 
-              type="radio" 
+          <div className="mt-2">
+            <input
+              type="radio"
               id="dark"
-              name='theme'
-              value='Dark'
-              className = 'cursor-pointer'
+              name="theme"
+              value="Dark"
               onChange={setMode}
-              checked={currentMode ==='Dark'}
+              className="cursor-pointer"
+              checked={currentMode === 'Dark'}
             />
-            <label htmlFor='dark'
-            className='ml-2 text-md cursor-pointer'>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               Dark
             </label>
           </div>
