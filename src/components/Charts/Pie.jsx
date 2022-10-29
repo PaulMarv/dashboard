@@ -1,9 +1,46 @@
-import React from 'react'
+import React from 'react';
+import {AccumulationChartComponent, Inject, PieSeries, AccumulationDataLabel, AccumulationLegend, AccumulationTooltip, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective} from '@syncfusion/ej2-react-charts';
+import { useStateContext } from '../../contexts/contextProvider';
 
-const Pie = () => {
+
+const Pie = ({ id, data, legendVisiblity, height }) => {
+  const {currentMode} = useStateContext();
+
   return (
-    <div>Pie</div>
+   <AccumulationChartComponent
+    id= {id}
+    height={height}
+    tooltip={{enable:true}}
+    background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+    legendSettings={{visible: legendVisiblity, backgound: 'white'}}
+    >
+      <Inject services={[AccumulationLegend, AccumulationTooltip, PieSeries, AccumulationDataLabel]}/>
+      <AccumulationSeriesCollectionDirective>
+        <AccumulationSeriesDirective
+          name="Sale"
+          dataSource={data}
+          xName="x"
+          yName="y"
+          innerRadius="40%"
+          startAngle={360}
+          radius="70%"
+          explode
+          explodeOffset="10%"
+          explodeIndex={2}
+          dataLabel={{
+            visible: true,
+            name: 'text',
+            position:'Inside',
+            font: {
+              fontWeight: '600',
+              color: '#fff',
+            },
+          }}
+
+        />
+      </AccumulationSeriesCollectionDirective>
+   </AccumulationChartComponent>
   )
 }
 
-export default Pie
+export default Pie;
