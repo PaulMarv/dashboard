@@ -34,6 +34,7 @@ const ColorMapping = () => {
                 topRight: 10,
               }}
             />
+            {/**/}
           </SeriesCollectionDirective>
           <RangeColorSettingsDirective>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
